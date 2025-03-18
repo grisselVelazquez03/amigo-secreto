@@ -26,3 +26,19 @@ function actualizarListaAmigos() {
         listaElement.appendChild(li);
     });
 }
+
+function sortearAmigo() {
+    if (listaAmigos.length === 0) {
+        alert("No hay nombres en la lista para sortear.");
+        return;
+    }
+    let nombreSecreto = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    asignarTextoElemento('#resultado', `El amigo secreto es: ${nombreSecreto}`);
+    document.getElementById('listaAmigos').innerHTML = "";
+    listaAmigos = [];
+}
+
+function asignarTextoElemento(elemento, texto) {
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.innerHTML = texto;
+}
